@@ -97,6 +97,21 @@ describe SlackMathbot::Commands::Calculate do
       solution = "17"
       expect_problem_with_solution(problem, solution)
     end
+    it 'returns 14 for 3 + 6 x (5 + 4) ÷ 3 - 7' do
+      problem = '3 + 6 x (5 + 4) ÷ 3 - 7'
+      solution = '14'
+      expect_problem_with_solution(problem, solution)
+    end
+    it 'returns 13 for 9 - 5 ÷ (8 - 3) x 2 + 6' do
+      problem = '9 - 5 ÷ (8 - 3) x 2 + 6'
+      solution = '13'
+      expect_problem_with_solution(problem, solution)
+    end
+    it 'returns 0 for 150 ÷ (6 + 3 x 8) - 5' do
+      problem = '150 ÷ (6 + 3 x 8) - 5'
+      solution = '0'
+      expect_problem_with_solution(problem, solution)
+    end
   end
 
   private
