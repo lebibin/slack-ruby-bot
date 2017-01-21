@@ -6,8 +6,8 @@ module SlackMathbot
       ERROR_MESSAGE = "Error"
       match /^.*(calculate|solve) (?<problem>.*)$/ do |client, data, match|
         problem = match[:problem]
-        # find instances of 'x' for multiplication and replace with *
-        problem.gsub!('x', '*')
+        # find instances of 'x|×' for multiplication and replace with *
+        problem.gsub!(/[x|×]/, '*')
         # find instances of '÷' for division and replace with /
         problem.gsub!('÷', '/')
         response = begin

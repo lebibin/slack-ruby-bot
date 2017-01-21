@@ -112,6 +112,11 @@ describe SlackMathbot::Commands::Calculate do
       solution = '0'
       expect_problem_with_solution(problem, solution)
     end
+    it 'returns 40 for 10 ÷ (4 + 6 - 8) × 7 + 5' do
+      problem = '10 ÷ (4 + 6 - 8) × 7 + 5'
+      solution = '40'
+      expect_problem_with_solution(problem, solution)
+    end
   end
 
   private
