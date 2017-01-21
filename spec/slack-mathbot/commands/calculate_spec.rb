@@ -41,4 +41,11 @@ describe SlackMathbot::Commands::Calculate do
       channel: 'channel'
     }).to respond_with_slack_message('1')
   end
+
+  it 'returns correct exponentiation result' do
+    expect({
+      message: "#{SlackRubyBot.config.user} calculate 2^20",
+      channel: 'channel'
+    }).to respond_with_slack_message('1048576')
+  end
 end
