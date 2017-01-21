@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 ruby '2.4.0'
 
+gem 'faraday_middleware', '0.10.1'
 gem 'slack-ruby-bot'
 gem 'puma'
 gem 'sinatra'
