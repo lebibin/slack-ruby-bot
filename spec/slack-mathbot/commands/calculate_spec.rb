@@ -7,7 +7,38 @@ describe SlackMathbot::Commands::Calculate do
 
   subject { app }
 
-  it 'returns 4' do
-    expect(message: "#{SlackRubyBot.config.user} calculate 2+2", channel: 'channel').to respond_with_slack_message('4')
+  it 'returns error message if equation is invalid' do
+    expect({
+      message: "#{SlackRubyBot.config.user} calculate 11 + 123 /",
+      channel: 'channel'
+    }).to respond_with_slack_message('Error')
+  end
+
+  it 'returns correct sum' do
+    expect({
+      message: "#{SlackRubyBot.config.user} calculate 2+3",
+      channel: 'channel'
+    }).to respond_with_slack_message('5')
+  end
+
+  it 'returns correct difference' do
+    expect({
+      message: "#{SlackRubyBot.config.user} calculate 2 - 3",
+      channel: 'channel'
+    }).to respond_with_slack_message('-1')
+  end
+
+  it 'returns correct product' do
+    expect({
+      message: "#{SlackRubyBot.config.user} calculate 11 * 11",
+      channel: 'channel'
+    }).to respond_with_slack_message('121')
+  end
+
+  it 'returns correct quotient' do
+    expect({
+      message: "#{SlackRubyBot.config.user} calculate 11 / 11",
+      channel: 'channel'
+    }).to respond_with_slack_message('1')
   end
 end
