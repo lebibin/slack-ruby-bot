@@ -8,51 +8,92 @@ describe SlackMathbot::Commands::Calculate do
   subject { app }
 
   it 'returns error message if equation is invalid' do
-    expect({
-      message: "#{SlackRubyBot.config.user} calculate 11 + 123 /",
-      channel: 'channel'
-    }).to respond_with_slack_message('Error')
+    expect_problem_with_solution('5+1-', 'Error')
   end
 
-  it 'returns correct sum' do
-    expect({
-      message: "#{SlackRubyBot.config.user} calculate 2+3",
-      channel: 'channel'
-    }).to respond_with_slack_message('5')
+  context 'Addition' do
+    it "returns 5 for 2+3" do
+      problem = "2+3"
+      solution = "5"
+      expect_problem_with_solution(problem, solution)
+    end
+    it "returns 8 for 5 + 2 +1" do
+      problem = "5 + 2  +1"
+      solution = "8"
+      expect_problem_with_solution(problem, solution)
+    end
   end
 
-  it 'returns correct difference' do
-    expect({
-      message: "#{SlackRubyBot.config.user} calculate 2 - 3",
-      channel: 'channel'
-    }).to respond_with_slack_message('-1')
+  context 'Subtraction' do
+    it "returns 1 for 4 - 3" do
+      problem = "4 - 3"
+      solution = "1"
+      expect_problem_with_solution(problem, solution)
+    end
+    it "returns -1 for 3 -  4" do
+      problem = "3 -   4"
+      solution = "-1"
+      expect_problem_with_solution(problem, solution)
+    end
   end
 
-  it 'returns correct product' do
-    expect({
-      message: "#{SlackRubyBot.config.user} calculate 11 * 11",
-      channel: 'channel'
-    }).to respond_with_slack_message('121')
+  context 'Multiplication' do
+    it "returns 10 for 2*5" do
+      problem = "2*5"
+      solution = "10"
+      expect_problem_with_solution(problem, solution)
+    end
+    it "returns 56 for 7 * 8" do
+      problem = "7 * 8"
+      solution = "56"
+      expect_problem_with_solution(problem, solution)
+    end
   end
 
-  it 'returns correct quotient' do
-    expect({
-      message: "#{SlackRubyBot.config.user} calculate 11 / 11",
-      channel: 'channel'
-    }).to respond_with_slack_message('1')
+  context 'Division' do
+    it "returns 5 for 25/5" do
+      problem = "25/5"
+      solution = "5"
+      expect_problem_with_solution(problem, solution)
+    end
+    it "returns 2 for 16 / 8" do
+      problem = "16 / 8"
+      solution = "2"
+      expect_problem_with_solution(problem, solution)
+    end
   end
 
-  it 'returns correct exponentiation result' do
-    expect({
-      message: "#{SlackRubyBot.config.user} calculate 2^20",
-      channel: 'channel'
-    }).to respond_with_slack_message('1048576')
+  context 'Exponent' do
+    it "returns 4 for 2^2" do
+      problem = "2^2"
+      solution = "4"
+      expect_problem_with_solution(problem, solution)
+    end
   end
 
-  it 'returns correct remainder' do
+  context 'Combination of operation' do
+    it 'returns 27 for 9 + 6 * (8 - 5)' do
+      problem = '9 + 6 * (8 - 5)'
+      solution = "27"
+      expect_problem_with_solution(problem, solution)
+    end
+    it 'returns 3 for (14 - 5) / (9 - 6)' do
+      problem = '(14 -5) / (9 - 6)'
+      solution = "3"
+      expect_problem_with_solution(problem, solution)
+    end
+    it 'returns 17 for 5 * 8 + 6 / 6 - 12 * 2' do
+      problem = '5 * 8 + 6 / 6 - 12 * 2'
+      solution = "17"
+      expect_problem_with_solution(problem, solution)
+    end
+  end
+
+  private
+  def expect_problem_with_solution(problem, solution)
     expect({
-      message: "#{SlackRubyBot.config.user} calculate 5%2",
+      message: "#{SlackRubyBot.config.user} calculate #{problem}",
       channel: 'channel'
-    }).to respond_with_slack_message('1')
+    }).to respond_with_slack_message(solution)
   end
 end
