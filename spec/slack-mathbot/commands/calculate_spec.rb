@@ -66,6 +66,11 @@ describe SlackMathbot::Commands::Calculate do
       solution = "2"
       expect_problem_with_solution(problem, solution)
     end
+    it "returns 1 for 6 ÷ 6" do
+      problem = "6 ÷ 6"
+      solution = "1"
+      expect_problem_with_solution(problem, solution)
+    end
   end
 
   context 'Exponent' do

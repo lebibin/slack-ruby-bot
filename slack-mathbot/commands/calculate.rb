@@ -8,6 +8,8 @@ module SlackMathbot
         problem = match[:problem]
         # find instances of 'x' for multiplication and replace with *
         problem.gsub!('x', '*')
+        # find instances of '÷' for division and replace with /
+        problem.gsub!('÷', '/')
         response = begin
                      ::Dentaku::Calculator.new.evaluate(problem)
                    rescue *CALCULATE_EXCEPTIONS
