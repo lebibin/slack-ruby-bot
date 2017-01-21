@@ -48,6 +48,11 @@ describe SlackMathbot::Commands::Calculate do
       solution = "56"
       expect_problem_with_solution(problem, solution)
     end
+    it "returns 4 for 4x1" do
+      problem = "4x1"
+      solution = "4"
+      expect_problem_with_solution(problem, solution)
+    end
   end
 
   context 'Division' do
