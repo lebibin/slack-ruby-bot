@@ -8,7 +8,7 @@ describe SlackMathbot::Commands::Calculate do
   subject { app }
 
   it 'returns error message if equation is invalid' do
-    expect_problem_with_solution('5+1-', 'Error')
+    expect_problem_with_solution('5+1-', described_class::ERROR_MESSAGE)
   end
 
   context 'Addition' do
@@ -115,6 +115,11 @@ describe SlackMathbot::Commands::Calculate do
     it 'returns 40 for 10 ÷ (4 + 6 - 8) × 7 + 5' do
       problem = '10 ÷ (4 + 6 - 8) × 7 + 5'
       solution = '40'
+      expect_problem_with_solution(problem, solution)
+    end
+    it 'returns 5 for 5 × (4 ÷ (10 + 3 - 7 - 2))' do
+      problem = '5 × (4 ÷ (10 + 3 - 7 - 2))'
+      solution = '5'
       expect_problem_with_solution(problem, solution)
     end
   end
