@@ -10,7 +10,7 @@ Thread.abort_on_exception = true
 Thread.new do
   begin
     SlackMathbot::Bot.run
-  rescue Exception => e
+  rescue StandardError => e
     STDERR.puts "ERROR: #{e}"
     STDERR.puts e.backtrace
     raise e
