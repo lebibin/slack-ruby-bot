@@ -19,4 +19,7 @@ group :test do
   gem 'rack-test'
   gem 'vcr'
   gem 'webmock'
+  gem 'simplecov'
+  gem 'codeclimate-test-reporter', '~> 1.0.0'
 end
+
