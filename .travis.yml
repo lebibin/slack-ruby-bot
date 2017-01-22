@@ -1,5 +1,8 @@
 language: ruby
 cache: bundler
 rvm:
-  - 2.4.0
+- 2.4.0
 script: bundle exec rspec spec
+notifications:
+  slack:
+    secure: Wpxa9QmYScZWoFxMiZYsc6qk5XnFFNq2lntGNLqc7JfJcK3eMW7dlhAW15r+N45EuqREnUucyFs2P/WtnVsYUflfFm0njxfBB7VNNlZA7Y/AzHvD1GbAyonDRIu1RMsXofBK7BIDdn73DXSkVS6PMoww4e9pIGZx0YmrRfQSlhIxYP38fB/aEHe6qAEcP8IAf31io8pGkbZsBiRBZ98LXlQvlICGYxo4BSuowOvXo2lLp0/D/JqoLJ8OCNlBF5V7U1G8BOoYvfd4bwXfD7I3fmVheKpoTBas04fe6iPINVbJLkYG/rq60TcDZrR88eEBbGN0A/bRJjvDm4pLWK75slvVI8KfHymaUVxkpUFqOa+nyALQWVf486oZPXh9M5vm+ecUY+gUFIUjtjNiZD7/buj0fJY/Rh+Ndm5qJ8NAPSaevn/cEqgj03wgeHz6/bD9CPpufi+rV1Nuc+CPRhFORg5CMkX6apFXFfH4j+2SoEgytDY4cQ+HiE+BuZ6IkyvynsJkK5amIfFo0EgG52B0jsvgnoWBBJHQCiTm0FwOLO/Dw7yGKG8945aR33gsSQl+uMO2IX6OAnoG9kHS4nRS5NKSSEH+FjJfcbXZlxnp7k3ZnTcDrJxcsr6z9TREwt+rpYCK/eY7fiqXB2vtY4PgyUm+i/6Y+yj2DTv9y1UI27s=
