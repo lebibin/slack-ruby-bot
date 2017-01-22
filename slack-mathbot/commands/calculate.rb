@@ -7,11 +7,11 @@ module SlackMathbot
       match /^.*(calculate|solve) (?<problem>.*)$/ do |client, data, match|
         problem = match[:problem]
         # find instances of '−' for subtraction and replace with -
-        problem.gsub!(/−/, '-')
+        problem.tr!('−', '-')
         # find instances of 'x|×' for multiplication and replace with *
-        problem.gsub!(/[x|×]/, '*')
+        problem.tr!('x×', '*')
         # find instances of '÷' for division and replace with /
-        problem.gsub!('÷', '/')
+        problem.tr!('÷', '/')
         response = begin
                      ::Dentaku::Calculator.new.evaluate(problem)
                    rescue *CALCULATE_EXCEPTIONS
