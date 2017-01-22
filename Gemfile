@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 ruby '2.4.0'
 
 gem 'faraday_middleware', '0.10.1'
@@ -8,11 +8,7 @@ gem 'sinatra'
 gem 'dotenv'
 gem 'celluloid-io'
 gem 'dentaku'
-
-group :development, :test do
-  gem 'rake'
-  gem 'foreman'
-end
+gem 'foreman'
 
 group :test do
   gem 'rspec'

@@ -1,5 +1,5 @@
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     activesupport (5.0.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
@@ -60,7 +60,6 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
-    rake (12.0.0)
     rspec (3.5.0)
       rspec-core (~> 3.5.0)
       rspec-expectations (~> 3.5.0)
@@ -123,7 +122,6 @@ DEPENDENCIES
   foreman
   puma
   rack-test
-  rake
   rspec
   simplecov
   sinatra
