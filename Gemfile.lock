@@ -40,11 +40,11 @@ GEM
     dotenv (2.1.2)
     faraday (0.11.0)
       multipart-post (>= 1.2, < 3)
-    faraday_middleware (0.10.1)
+    faraday_middleware (0.11.0.1)
       faraday (>= 0.7.4, < 1.0)
     foreman (0.83.0)
       thor (~> 0.19.1)
-    gli (2.14.0)
+    gli (2.15.0)
     hashdiff (0.3.2)
     hashie (3.4.6)
     hitimes (1.2.4)
@@ -106,7 +106,7 @@ GEM
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
-    websocket-driver (0.6.4)
+    websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
 
@@ -118,7 +118,6 @@ DEPENDENCIES
   codeclimate-test-reporter (~> 1.0.0)
   dentaku
   dotenv
-  faraday_middleware (= 0.10.1)
   foreman
   puma
   rack-test
